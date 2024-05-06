@@ -25,7 +25,11 @@ class SurveysController extends AppController
     {
         $survey = $this->Surveys->newEmptyEntity();
         if ($this->request->is('post')) {
-            $survey = $this->Surveys->patchEntity($survey, $this->request->getData(), ['associated' => ['SurveyImages']]);
+            $data = $this->request->getData();
+            if($data['survey_images'][0]['filename']->getSize() === 0){
+                unset($data['survey_images']);
+            }
+            $survey = $this->Surveys->patchEntity($survey, $data, ['associated' => ['SurveyImages']]);
             if ($this->Surveys->save($survey, ['associated' => ['SurveyImages']])) {
                 return $this->redirect(['action' => 'complete']);
             }

@@ -71,7 +71,7 @@ class SurveysTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->addCreate(function ($entity, $option) {
-            if (count($entity->survey_images) > Survey::MAX_NUMBER_OF_IMAGES) {
+            if (!empty($entity->survey_images) && count($entity->survey_images) > Survey::MAX_NUMBER_OF_IMAGES) {
                 return false;
             }
             return true;
