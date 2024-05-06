@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Model\Entity\SurveyImage;
-use Cake\ORM\TableRegistry;
-
 /**
  * Surveys Controller
  *
@@ -32,7 +29,7 @@ class SurveysController extends AppController
             if ($this->Surveys->save($survey, ['associated' => ['SurveyImages']])) {
                 return $this->redirect(['action' => 'complete']);
             }
-            $this->Flash->error(__('エラーが発生したため、回答が登録できませんでした。'));
+            $this->Flash->error(__('回答の登録に失敗しました。'));
         }
         $this->set(compact('survey'));
     }

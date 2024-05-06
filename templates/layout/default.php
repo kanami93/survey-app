@@ -7,21 +7,16 @@
         <?= $this->fetch('title') ?>
     </title>
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake', 'style']) ?>
+    <?= $this->Html->css('https://use.fontawesome.com/releases/v6.2.0/css/all.css');?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <h1>LIVEアンケート</h1>
-        </div>
-    </nav>
     <main class="main">
         <div class="container">
-            <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </main>

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\Model\Entity\Survey;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -59,4 +60,27 @@ class SurveysTable extends Table
 
         return $validator;
     }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->addCreate(function ($entity, $option) {
+            if (count($entity->survey_images) > Survey::MAX_NUMBER_OF_IMAGES) {
+                return false;
+            }
+            return true;
+        },[
+            'errorField' => 'survey_images',
+            'message' => '画像は' . Survey::MAX_NUMBER_OF_IMAGES . '枚までしか登録できません。'
+        ]);
+
+        return $rules;
+    }
+
 }

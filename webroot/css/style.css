@@ -1,0 +1,42 @@
+.row .column {
+    margin-top: 30px;
+}
+
+.page-title {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.description {
+    padding: 20px;
+}
+
+.footnote {
+    font-size: 1.4rem;
+}
+
+.error-message, .text-red {
+    color: red;
+}
+
+textarea {
+    height: 200px;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+button {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .page-title {
+        font-size: 4rem;
+    }
+
+    .description {
+        padding: 5px;
+    }
+}
