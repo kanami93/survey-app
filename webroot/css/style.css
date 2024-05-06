@@ -31,6 +31,10 @@ button {
     width: 100%;
 }
 
+.thanks-message {
+    margin-top: 30px;
+}
+
 @media (max-width: 767px) {
     .page-title {
         font-size: 4rem;

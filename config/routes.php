@@ -56,6 +56,7 @@ return function (RouteBuilder $routes): void {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Surveys', 'action' => 'add', 'home']);
+        $builder->connect('/complete', ['controller' => 'Surveys', 'action' => 'complete']);
 
         /*
          * Connect catchall routes for all controllers.
