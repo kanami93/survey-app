@@ -6,12 +6,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Survey Entity
+ * SurveyImage Entity
  *
  * @property int $id
- * @property string $thoughts
+ * @property int $survey_id
+ * @property string $filename
+ * @property string $original_filename
+ * @property int $filesize
+ * @property \Cake\I18n\DateTime $created
+ *
+ * @property \App\Model\Entity\Survey $survey
  */
-class Survey extends Entity
+class SurveyImage extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -24,6 +30,5 @@ class Survey extends Entity
      */
     protected array $_accessible = [
         '*' => true,
-        'survey_images' => true,
     ];
 }

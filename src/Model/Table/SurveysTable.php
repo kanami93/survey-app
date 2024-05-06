@@ -37,6 +37,11 @@ class SurveysTable extends Table
     {
         parent::initialize($config);
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('SurveyImages', [
+            'foreignKey' => 'survey_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
