@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\File\Writer\AppWriter;
 use Aws\S3\S3Client;
 use Cake\Core\Configure;
-use Cake\Datasource\EntityInterface;
-use Cake\Event\EventInterface;
-use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Utility\Text;
@@ -72,8 +70,10 @@ class SurveyImagesTable extends Table
                     'options' => [
                         'client' => 'S3',
                         'bucket' => $bucket,
+                        'ACL' => 'public-read',
                     ],
                 ],
+                'writer' => AppWriter::class,
                 'nameCallback' => function ($table, $entity, $data, $field, $settings) {
                     $entity->original_filename = $data->getClientFilename();
                     return Text::uuid().'.'.pathinfo($data->getClientFilename(),PATHINFO_EXTENSION);
