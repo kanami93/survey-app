@@ -22,7 +22,7 @@
             <fieldset>
                 <label><i class="fa-regular fa-pen-to-square icon"></i>感想<span class="text-red">(※)</span></label>
                 <?= $this->Form->control('thoughts', ['label' => false]); ?>
-                <label><i class="fa-solid fa-camera-retro icon"></i>画像</label>
+                <label><i class="fa-solid fa-camera-retro icon"></i>写真</label>
                 <?= $this->Form->control('survey_images[].filename', [
                     'label' => false,
                     'type' => 'file',
@@ -30,9 +30,9 @@
                     'multiple' => true,
                 ]) ?>
                 <?= $this->Form->error('survey_images') ?>
-                <p class="footnote">※画像は<?= \App\Model\Entity\Survey::MAX_NUMBER_OF_IMAGES ?>枚まで登録可能です</p>
+                <p class="footnote">※写真は<?= \App\Model\Entity\Survey::MAX_NUMBER_OF_IMAGES ?>枚まで登録可能です</p>
             </fieldset>
-            <?= $this->Form->button(__('回答する')) ?>
+            <?= $this->Form->button('回答する') ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
