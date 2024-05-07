@@ -91,4 +91,16 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
+
+    'S3' => [
+        'config' => [
+            'credentials' => [
+                'key' => '',
+                'secret' => '',
+            ],
+            'region' => '',
+            'version' => '',
+        ],
+        'bucket' => ''
+    ]
 ];
