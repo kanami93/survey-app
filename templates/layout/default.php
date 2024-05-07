@@ -12,13 +12,13 @@
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
 </head>
 <body>
     <main class="main">
         <div class="container">
             <?= $this->fetch('content') ?>
         </div>
+        <?= $this->fetch('script') ?>
     </main>
     <footer>
     </footer>

@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Survey $survey
  */
 ?>
+<?= $this->Html->script('button', ['block' => 'script']) ?>
 <div class="row">
     <div class="column">
         <?= $this->Flash->render() ?>
@@ -32,7 +33,7 @@
                 <?= $this->Form->error('survey_images') ?>
                 <p class="footnote">※写真は<?= \App\Model\Entity\Survey::MAX_NUMBER_OF_IMAGES ?>枚まで登録可能です</p>
             </fieldset>
-            <?= $this->Form->button('回答する') ?>
+            <?= $this->Form->button('回答する', ['class' => 'submit-btn']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
